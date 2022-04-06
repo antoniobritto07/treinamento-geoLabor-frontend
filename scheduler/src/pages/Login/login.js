@@ -11,12 +11,16 @@ export default function Login() {
         <div className="login-container">
             <div className="login-box">
                 <Form className="form-container">
-                    <Form.Group className="mb-3" controlId="formGroupEmail">
-                        <Form.Label>Email address</Form.Label>
+                    <Form.Group className="form-email-container" controlId="formGroupEmail">
+                        <Form.Label className="form-email-label">
+                            Email address
+                        </Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formGroupPassword">
-                        <Form.Label>Password</Form.Label>
+                    <Form.Group className="form-password-container" controlId="formGroupPassword">
+                        <Form.Label className="form-password-label">
+                            Password
+                        </Form.Label>
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
                 </Form>
