@@ -1,39 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import api from '../../services/Api';
-import { Link } from 'react-router-dom';
 
 import {
     Form,
     Button
 } from "react-bootstrap";
 
-import "./login.css";
+import "./register.css";
 
-export default function Login() {
-    const [userData, setUserData] = useState({
-        email: '',
-        password: ''
+export default function Register() {
+
+    const [userToCreate, setUserToCreate] = useState({
+        email: "",
+        password: ""
     })
 
-    useEffect(() => {
-        console.log(userData)
-    }, [userData])
-
-    const submitLogin = async (userToLogin) => {
-        const { email, password } = userToLogin;
-        const data = await api.post("/session", {
+    const submitCreateNewAccount = async(userToCreate) => {
+        const { email, password } = userToCreate;
+        const data = await api.post("/user", {
             email: email,
             password: password
         });
-
-
     }
 
     return (
-        <div className="login-container">
-            <div className="login-box">
-                <h2 className="login-title">
-                    Scheduler
+        <div className="register-container">
+            <div className="register-box">
+                <h2 className="register-title">
+                    Create your account on Scheduler!
                 </h2>
                 <Form className="form-container">
                     <Form.Group className="form-email-container" controlId="formGroupEmail">
@@ -43,7 +37,7 @@ export default function Login() {
                         <Form.Control
                             type="email"
                             placeholder="Enter email..."
-                            onChange={(event) => setUserData({ ...userData, email: event.target.value })}
+                            onChange={(event) => setUserToCreate({ ...userToCreate, email: event.target.value })}
                         />
                     </Form.Group>
                     <Form.Group className="form-password-container" controlId="formGroupPassword">
@@ -52,23 +46,18 @@ export default function Login() {
                         </Form.Label>
                         <Form.Control
                             type="password"
-                            placeholder="Enter password..."
-                            onChange={(event) => setUserData({ ...userData, password: event.target.value })}
+                            placeholder="Create password..."
+                            onChange={(event) => setUserToCreate({ ...userToCreate, password: event.target.value })}
                         />
                     </Form.Group>
                     <Button
                         className="submit-button"
                         variant="primary"
                         type="submit"
-                        onClick={submitLogin(userData)}
+                        onClick={submitCreateNewAccount(userToCreate)}
                     >
-                        Submit
+                        Create account
                     </Button>
-                    <Link to="/register" className="register-user-container">
-                        <a className="register-user-text">
-                            Ainda não tem conta? Crie uma agora!
-                        </a>
-                    </Link>
                 </Form>
             </div>
         </div >

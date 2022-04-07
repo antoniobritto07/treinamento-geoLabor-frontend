@@ -1,4 +1,3 @@
-$primaryColor: #ffffff;
 $secondaryColor: gray;
 
 @mixin centering_data {
@@ -7,19 +6,33 @@ $secondaryColor: gray;
     display: flex;
 }
 
-.login-title {
+.register-title {
     text-align: center;
     color: white;
     text-transform: uppercase;
     padding: 1px;
-    font-family: 'Raleway', cursive;
-    font-weight: 200;
-    font-size: 50px;
+    font-weight: 100;
+    font-size: 30px;
     position: relative;
 }
 
+.register-container {
+    @include centering_data;
+    width: 100%;
+    height: 100vh;
+}
+
+.register-box {
+    @include centering_data;
+    background-color: $secondaryColor;
+    width: 60%;
+    height: 70%;
+    flex-direction: column;
+    border-radius: 30px;
+}
+
 @media(max-width: 650px) {
-    .login-title {
+    .register-title {
         font-size: 30px;
     }   
     .form-email-label {
@@ -28,21 +41,6 @@ $secondaryColor: gray;
     .form-password-label {
         font-size: 15px !important;
     }
-}
-
-.login-container {
-    @include centering_data;
-    width: 100%;
-    height: 100vh;
-}
-
-.login-box {
-    background-color: $secondaryColor;
-    width: 60%;
-    height: 70%;
-    @include centering_data;
-    flex-direction: column;
-    border-radius: 30px;
 }
 
 .form-container {
@@ -86,13 +84,4 @@ $secondaryColor: gray;
     &:hover {
         background-color: hsl(133, 98%, 49%)
     }
-}
-
-.register-user-container {
-    margin-top: 10px;
-    width: 100%;
-    @include centering_data;
-}
-.register-user-text {
-    text-align: center;
 }

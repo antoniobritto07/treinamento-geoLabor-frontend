@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Login from './pages/Login/login.js'
+import Login from './pages/Login'
+import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 
 export default function Routes() {
@@ -9,6 +10,7 @@ export default function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route path='/login' component={Login} />
+                <Route path='/register' component={Register} />
                 <Route path='/dashboard' component={Dashboard} />
             </Switch>
         </BrowserRouter>
