@@ -54,6 +54,15 @@ $secondaryColor: gray;
     flex-direction: column;
     margin-bottom: 40px
 }
+.form-name-container {
+    @include centering_data;
+    flex-direction: column;
+    margin-bottom: 40px
+}
+
+.form-name-label {
+    font-size: 17px;
+}
 
 .form-email-label {
     font-size: 17px;

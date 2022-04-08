@@ -11,16 +11,18 @@ import "./register.css";
 export default function Register() {
 
     const [userToCreate, setUserToCreate] = useState({
+        name: "",
         email: "",
         password: ""
     })
 
     const submitCreateNewAccount = async(userToCreate) => {
-        const { email, password } = userToCreate;
+        const { name, email, password } = userToCreate;
         const data = await api.post("/user", {
+            name: name,
             email: email,
             password: password
-        });
+        });  
     }
 
     return (
@@ -30,6 +32,16 @@ export default function Register() {
                     Create your account on Scheduler!
                 </h2>
                 <Form className="form-container">
+                    <Form.Group className="form-name-container">
+                        <Form.Label className="form-name-label">
+                            Your name
+                        </Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Enter your name..."
+                            onChange={(event) => setUserToCreate({ ...userToCreate, name: event.target.value })}
+                        />
+                    </Form.Group>
                     <Form.Group className="form-email-container" controlId="formGroupEmail">
                         <Form.Label className="form-email-label">
                             Email address
