@@ -17,12 +17,13 @@ export default function Register() {
     })
 
     const submitCreateNewAccount = async(userToCreate) => {
-        const { name, email, password } = userToCreate;
-        const data = await api.post("/user", {
-            name: name,
-            email: email,
-            password: password
-        });  
+        try {
+            const data = await api.post("/user", { ...userToCreate});
+            console.log(data)
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -65,8 +66,7 @@ export default function Register() {
                     <Button
                         className="submit-button"
                         variant="primary"
-                        type="submit"
-                        onClick={submitCreateNewAccount(userToCreate)}
+                        onClick={() => {submitCreateNewAccount(userToCreate)}}
                     >
                         Create account
                     </Button>
