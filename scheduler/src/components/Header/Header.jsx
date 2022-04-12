@@ -1,8 +1,12 @@
 import React from 'react';
 
+import { useHistory } from 'react-router-dom';
+
 import "./header.css";
 
 export default function Header() {
+    const history = useHistory();
+
     return (
         <div className="header-container">
             <div className="header-container-informations">
@@ -10,7 +14,14 @@ export default function Header() {
                     Scheduler
                 </h2>
                 <div className="header-buttons">
-                    <button>Log Out</button>
+                    <button
+                        onClick={() => {
+                            localStorage.removeItem('jwtToken');
+                            history.push("/login");
+                        }}
+                    >
+                        Log Out
+                    </button>
                 </div>
             </div>
         </div >
