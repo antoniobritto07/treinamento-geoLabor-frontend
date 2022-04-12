@@ -1,36 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/Api';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useToasts } from "react-toast-notifications";
 
 import {
     Form,
     Button
 } from "react-bootstrap";
 
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+
 import "./login.css";
 
 export default function Login() {
+    const { addToast } = useToasts(); 
+    const history = useHistory();
     const [userData, setUserData] = useState({
         email: '',
         password: ''
     })
 
-    useEffect(() => {
-        console.log(userData)
-    }, [userData])
-
     const submitLogin = async (userToLogin) => {
-        const { email, password } = userToLogin;
-        const data = await api.post("/session", {
-            email: email,
-            password: password
-        });
+        try {
+            const response = await api.post("/session", { ...userToLogin });
+            const token = response.data.token;  
+            localStorage.setItem('jwtToken', token);
 
-
+            history.push("/dashboard");
+        }
+        catch (error) {
+            addToast("Something got wrong while trying to login account", { appearance: 'error' })
+            console.log(error)
+        }
     }
 
     return (
         <div className="login-container">
+            <Header />
             <div className="login-box">
                 <h2 className="login-title">
                     Scheduler
@@ -59,18 +66,18 @@ export default function Login() {
                     <Button
                         className="submit-button"
                         variant="primary"
-                        type="submit"
-                        onClick={submitLogin(userData)}
+                        onClick={() => {submitLogin(userData)}}
                     >
                         Submit
                     </Button>
                     <Link to="/register" className="register-user-container">
                         <a className="register-user-text">
-                            Ainda não tem conta? Crie uma agora!
+                            Don't have an account yet? Create it now!
                         </a>
                     </Link>
                 </Form>
             </div>
+            <Footer/>
         </div >
     )
 }

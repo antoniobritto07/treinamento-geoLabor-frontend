@@ -1,0 +1,17 @@
+$mainColor: gray;
+
+.footer-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position:absolute;
+    bottom: 0 !important;
+    width:100%;
+    height:60px;
+    background-color: $mainColor;
+}
+
+.footer-link-container {
+    margin-top: 3px;
+}

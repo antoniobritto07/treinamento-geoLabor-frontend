@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import api from '../../services/Api';
+import { useHistory } from "react-router-dom";
+import { useToasts } from "react-toast-notifications";
 
 import {
     Form,
     Button
 } from "react-bootstrap";
 
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+
 import "./register.css";
 
 export default function Register() {
+    const { addToast } = useToasts();
+    const history = useHistory();
 
     const [userToCreate, setUserToCreate] = useState({
         name: "",
@@ -17,17 +24,22 @@ export default function Register() {
     })
 
     const submitCreateNewAccount = async(userToCreate) => {
+        window.event.preventDefault();
         try {
             const data = await api.post("/user", { ...userToCreate});
             console.log(data)
+
+            history.push("/dashboard");
         }
         catch (error) {
+            addToast("Something got wrong while create a new account", { appearance: 'error' })
             console.log(error)
         }
     }
 
     return (
         <div className="register-container">
+            <Header />
             <div className="register-box">
                 <h2 className="register-title">
                     Create your account on Scheduler!
@@ -72,6 +84,7 @@ export default function Register() {
                     </Button>
                 </Form>
             </div>
+            <Footer />
         </div >
     )
 }

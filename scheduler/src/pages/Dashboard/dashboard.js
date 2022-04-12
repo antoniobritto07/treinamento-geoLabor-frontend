@@ -1,9 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 
 export default function Dashboard() {
     return (
-        <Fragment>
-            DASHBOARD
-        </Fragment >
+        <div className="login-container">
+            <Header />
+            <Footer/>
+        </div >
     )
 }

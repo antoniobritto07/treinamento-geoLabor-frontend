@@ -1,5 +1,5 @@
 $primaryColor: #ffffff;
-$secondaryColor: gray;
+$mainColor: gray;
 
 @mixin centering_data {
     justify-content: center;
@@ -28,16 +28,24 @@ $secondaryColor: gray;
     .form-password-label {
         font-size: 15px !important;
     }
+    .register-user-container {
+        width: 70% !important;
+        margin-top: 15px !important;
+    }
+    .register-user-text {
+        font-size: 14px
+    }
 }
 
 .login-container {
     @include centering_data;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
 }
 
 .login-box {
-    background-color: $secondaryColor;
+    background-color: $mainColor;
     width: 60%;
     height: 70%;
     @include centering_data;
