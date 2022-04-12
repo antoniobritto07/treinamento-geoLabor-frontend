@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import api from '../../services/Api';
 import { useHistory } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
+import { connect } from "react-redux";
 
 import {
     Form,
@@ -12,8 +13,10 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
 import "./register.css";
+import { registerAuthAction } from '../../redux/actions/AuthAction';
 
-export default function Register() {
+function Register(props) {
+    const { user, register } = props;
     const { addToast } = useToasts();
     const history = useHistory();
 
@@ -78,7 +81,10 @@ export default function Register() {
                     <Button
                         className="submit-button"
                         variant="primary"
-                        onClick={() => {submitCreateNewAccount(userToCreate)}}
+                        onClick={() => {
+                            submitCreateNewAccount(userToCreate);
+                            // register(userToCreate);
+                        }}
                     >
                         Create account
                     </Button>
@@ -88,3 +94,19 @@ export default function Register() {
         </div >
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        register: (userState) => {
+            dispatch(registerAuthAction(userState))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

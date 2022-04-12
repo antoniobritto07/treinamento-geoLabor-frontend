@@ -24,7 +24,7 @@ export default function Login() {
     const submitLogin = async (userToLogin) => {
         try {
             const response = await api.post("/session", { ...userToLogin });
-            const token = response.data.token;  
+            const { token } = response.data;  
             localStorage.setItem('jwtToken', token);
 
             history.push("/dashboard");
