@@ -1,5 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import {
     
 } from "react-bootstrap";
@@ -13,7 +15,6 @@ import Card from '../../components/Card';
 import "./dashboard.css"
 
 export default function Dashboard() {
-
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
@@ -32,6 +33,12 @@ export default function Dashboard() {
         <div className="dashboard-container">
             <Header />
             <div className="dashboard-content-container">
+            <div className="dashboard-content-container-new-task" onClick={() => {addNewTask()}}>
+                <FontAwesomeIcon 
+                    className="dashboard-content-contaienr-new-task-icon" 
+                    icon={faPlus}
+                />
+            </div>
                     {tasks.map((task)=> {
                         return (
                             <Card key={task._id} task={task}/>

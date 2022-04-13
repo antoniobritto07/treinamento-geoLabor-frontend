@@ -1,0 +1,20 @@
+.card-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: 'Poppings','Montserrat',sans-serif;
+    display: block;
+    position: relative;
+    height: 300px;
+    width: 300px;
+    border-radius: 15px;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.card-container-information-data {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-container-informations {
+    padding: 10px
+}

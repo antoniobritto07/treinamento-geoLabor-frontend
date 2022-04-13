@@ -10,13 +10,45 @@ $mainColor: gray;
 .dashboard-container {
     @include centering_data;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     flex-direction: column;
 }
 
 .dashboard-content-container {
-    @include centering_data;
     width: 90%;
     height: 80vh;
     flex-direction: column;
+    margin: 0 1%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px,1fr));
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    justify-content: center;
+    justify-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dashboard-content-container-new-task {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: 'Poppings','Montserrat',sans-serif;
+    display: flex;
+    position: relative;
+    height: 300px;
+    width: 300px;
+    border-radius: 15px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.dashboard-content-contaienr-new-task-icon {
+    font-size: 40px;
 }

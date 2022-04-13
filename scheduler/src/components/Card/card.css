@@ -1,0 +1,27 @@
+.card-container {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: 'Poppings','Montserrat',sans-serif;
+  display: block;
+  position: relative;
+  height: 300px;
+  width: 300px;
+  border-radius: 15px;
+  margin: 5px;
+  overflow: hidden;
+}
+
+.card-container-information-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.card-container-informations {
+  padding: 10px;
+}
+/*# sourceMappingURL=card.css.map */
