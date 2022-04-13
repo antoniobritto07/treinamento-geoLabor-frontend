@@ -1,15 +1,16 @@
 import React,{ useState, useEffect } from 'react';
 
 import {
-    Col,
-    Row,
-    Container
+    
 } from "react-bootstrap";
 
 import api from '../../services/Api';
 
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import Card from '../../components/Card';
+
+import "./dashboard.css"
 
 export default function Dashboard() {
 
@@ -30,28 +31,13 @@ export default function Dashboard() {
     return (
         <div className="dashboard-container">
             <Header />
-            <Container>
+            <div className="dashboard-content-container">
                     {tasks.map((task)=> {
-                        <div>
-                            <div>
-                                <div>Título:</div>
-                                <div>{task.title}</div>
-                            </div>
-                            <div>
-                                <div>Descrição:</div>
-                                <div>{task.description}</div>
-                            </div>
-                            <div>
-                                <div>Data limite para fazer:</div>
-                                <div>{task.limit_Date}</div>
-                            </div>
-                            <div>
-                                <div>Está feita?</div>
-                                <div>{task.is_Done}</div>
-                            </div>
-                        </div>
+                        return (
+                            <Card key={task._id} task={task}/>
+                        )
                     })}
-            </Container>
+            </div>
             <Footer/>
         </div >
     )
