@@ -26,7 +26,6 @@ export default function Dashboard() {
         setTasks(
             response.data.tasks.
             reverse()
-            .sort(function(a,b){ return new Date(a.limit_Date) - new Date(b.limit_Date) })
         );
     }
 

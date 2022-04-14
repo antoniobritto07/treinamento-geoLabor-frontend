@@ -27,8 +27,11 @@ function Register(props) {
     })
 
     const submitCreateNewAccount = async(userToCreate) => {
-        window.event.preventDefault();
         try {
+            if(localStorage.getItem('jwtToken')) {
+                addToast("You need to logout before try to register a new account", { appearance: 'error' })
+                return;
+            }
             const response = await api.post("/user", { ...userToCreate});
             const { token } = response.data;  
             localStorage.setItem('jwtToken', token);

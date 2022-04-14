@@ -23,6 +23,10 @@ export default function Login() {
 
     const submitLogin = async (userToLogin) => {
         try {
+            if(localStorage.getItem('jwtToken')) {
+                addToast("You need to logout before submit a new login", { appearance: 'error' })
+                return;
+            }
             const response = await api.post("/session", { ...userToLogin });
             const { token } = response.data;  
             localStorage.setItem('jwtToken', token);
