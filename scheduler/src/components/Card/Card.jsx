@@ -13,7 +13,6 @@ export default function Card(props) {
 
     const [dateDay, dateTime] = limit_Date.split("T");
     const formattedDateLimit = format(parseISO(dateDay), 'dd/MM/yyyy');
-    console.log(formattedDateLimit)
 
     return (
         <div className="card-container" style={ is_Done ? {backgroundColor: "green"} : {backgroundColor: "red"} }>
