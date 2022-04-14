@@ -29,8 +29,9 @@ function Register(props) {
     const submitCreateNewAccount = async(userToCreate) => {
         window.event.preventDefault();
         try {
-            const data = await api.post("/user", { ...userToCreate});
-            console.log(data)
+            const response = await api.post("/user", { ...userToCreate});
+            const { token } = response.data;  
+            localStorage.setItem('jwtToken', token);
 
             history.push("/dashboard");
         }

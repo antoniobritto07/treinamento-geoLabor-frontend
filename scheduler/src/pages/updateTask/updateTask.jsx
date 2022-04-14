@@ -87,7 +87,7 @@ function UpdateTask(props) {
                             submitUpdateTask(taskToUpdate);
                         }}
                     >
-                        Update task
+                        Submit
                     </Button>
                 </Form>
             </div>

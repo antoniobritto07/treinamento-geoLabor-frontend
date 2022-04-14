@@ -52,17 +52,28 @@ export default function Card(props) {
     return (
         <div className="card-container" style={ is_Done ? {backgroundColor: "green"} : {backgroundColor: "red"} }>
             <div className="card-container-edit-delete-icons">
-            <Link to={{
-                pathname:"/updateTask",
-                state: {task: task}
-            }}>
-                <FontAwesomeIcon 
-                    title="Edit task"
-                    style={ is_Done ? {cursor: "not-allowed"} : {cursor: "pointer"}}
-                    className="card-container-edit-icon" 
-                    icon={faPenToSquare}
-                />
-            </Link>
+                {is_Done ? 
+                    <Link to={{}}>
+                        <FontAwesomeIcon 
+                            title="Edit task"
+                            style={{ cursor: "not-allowed" }}
+                            className="card-container-edit-icon" 
+                            icon={faPenToSquare}
+                        />
+                    </Link>     
+                    :
+                    <Link to={{
+                        pathname:"/updateTask",
+                        state: {task: task}
+                    }}>
+                        <FontAwesomeIcon 
+                            title="Edit task"
+                            style={{ cursor: "pointer" }}
+                            className="card-container-edit-icon" 
+                            icon={faPenToSquare}
+                        />
+                    </Link>
+                }
             <FontAwesomeIcon
                 title="Delete task"
                 className="card-container-delete-icon" 

@@ -14,7 +14,6 @@ import "./dashboard.css"
 
 export default function Dashboard() {
     const [tasks, setTasks] = useState([]);
-    const [displayAddNewTaskModal, setDisplayAddNewTaskModal] = useState(false);
 
     useEffect(() => {
         getAllTasks();
@@ -24,7 +23,11 @@ export default function Dashboard() {
         const token = localStorage.getItem('jwtToken');
         const bearerToken = `Bearer ${token}`;
         const response = await api.get("/task", { headers: { authorization: bearerToken } });
-        setTasks(response.data.tasks);
+        setTasks(
+            response.data.tasks.
+            reverse()
+            .sort(function(a,b){ return new Date(a.limit_Date) - new Date(b.limit_Date) })
+        );
     }
 
     return (

@@ -14,7 +14,9 @@ export default function Header() {
                     Scheduler
                 </h2>
                 <div className="header-buttons">
+                    {localStorage.getItem('jwtToken') ? 
                     <button
+                        className="header-logout-session-button"
                         onClick={() => {
                             localStorage.removeItem('jwtToken');
                             history.push("/login");
@@ -22,6 +24,8 @@ export default function Header() {
                     >
                         Log Out
                     </button>
+                    : null
+                    }
                 </div>
             </div>
         </div >
