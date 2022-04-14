@@ -1,9 +1,12 @@
 .card-container {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     font-family: 'Poppings','Montserrat',sans-serif;
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     height: 300px;
+    align-items: center;
+    justify-content: flex-start;
     width: 300px;
     border-radius: 15px;
     margin: 5px;
@@ -16,5 +19,34 @@
 }
 
 .card-container-informations {
-    padding: 10px
+    padding: 10px;
+    height: 80%;
+}
+
+.card-container-edit-delete-icons {
+    height: 10%;
+    width: 90%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-container-edit-check-icon-container {
+    height: 10%;
+    width: 90%;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+}
+
+.card-container-check-icon {
+    cursor: pointer;
+}
+
+.card-container-delete-icon {
+    cursor: pointer;
 }

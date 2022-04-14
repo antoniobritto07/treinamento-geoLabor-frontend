@@ -28,7 +28,6 @@ export default function NewTask() {
         try {
             const token = localStorage.getItem('jwtToken');
             const bearerToken = `Bearer ${token}`;
-            console.log(bearerToken);
             await api.post("/task", { ...newTask}, {headers: { authorization: bearerToken }});
             addToast("New task created successfully", { appearance: 'success' })
             history.push("/dashboard");

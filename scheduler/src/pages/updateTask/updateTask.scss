@@ -6,7 +6,7 @@ $mainColor: gray;
     display: flex;
 }
 
-.register-title {
+.update-task-title {
     text-align: center;
     color: white;
     text-transform: uppercase;
@@ -16,13 +16,13 @@ $mainColor: gray;
     position: relative;
 }
 
-.register-container {
+.update-task-container {
     @include centering_data;
     width: 100%;
     height: 100vh;
 }
 
-.register-box {
+.update-task-box {
     @include centering_data;
     background-color: $mainColor;
     width: 60%;
@@ -32,13 +32,13 @@ $mainColor: gray;
 }
 
 @media(max-width: 650px) {
-    .register-title {
+    .update-task-title {
         font-size: 30px;
     }   
-    .form-email-label {
+    .form-description-label {
         font-size: 15px !important;
     }
-    .form-password-label {
+    .form-limit-date-label {
         font-size: 15px !important;
     }
 }
@@ -49,31 +49,31 @@ $mainColor: gray;
     height: 80%;
 }
 
-.form-email-container {
+.form-description-container {
     @include centering_data;
     flex-direction: column;
     margin-bottom: 40px
 }
-.form-name-container {
+.form-title-container {
     @include centering_data;
     flex-direction: column;
     margin-bottom: 40px
 }
 
-.form-name-label {
+.form-title-label {
     font-size: 17px;
 }
 
-.form-email-label {
+.form-description-label {
     font-size: 17px;
 }
 
-.form-password-container {
+.form-limit-date-container {
     @include centering_data;
     flex-direction: column;
 }
 
-.form-password-label {
+.form-limit-date-label {
     font-size: 17px;
 }
 
