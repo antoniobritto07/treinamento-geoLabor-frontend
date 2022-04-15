@@ -54,3 +54,9 @@
 .card-container-delete-icon {
     cursor: pointer;
 }
+
+.card-container-informations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

@@ -57,7 +57,7 @@ export default function Card(props) {
                         <FontAwesomeIcon 
                             title="Edit task"
                             style={{ cursor: "not-allowed" }}
-                            className="card-container-edit-icon" 
+                            className="card-container-edit-icon"
                             icon={faPenToSquare}
                         />
                     </Link>     
@@ -83,19 +83,19 @@ export default function Card(props) {
             </div>
             <div className="card-container-informations">
                 <div className="card-container-information-data">
-                    <div>Título:</div>
+                    <div style={{fontSize: "18px", fontWeight: "500"}}>Título:</div>
                     <div style={{marginLeft: "5px"}}>{title}</div>
                 </div>
                 <div className="card-container-information-data">
-                    <div>Descrição:</div>
+                    <div style={{fontSize: "18px", fontWeight: "500"}}>Descrição:</div>
                     <div style={{marginLeft: "5px"}}>{description}</div>
                 </div>
                 <div className="card-container-information-data">
-                    <div>Data limite para fazer:</div>
+                    <div style={{fontSize: "18px", fontWeight: "500"}}>Data limite para fazer:</div>
                     <div style={{marginLeft: "5px"}}>{formattedDateLimit}</div>
                 </div>
                 <div className="card-container-information-data">
-                    <div>Está feita?</div>
+                    <div style={{fontSize: "18px", fontWeight: "500"}}>Está feita?</div>
                     <div style={{marginLeft: "5px"}}>{is_Done  ? "Sim" : "Não"}</div>
                 </div>
             </div>
